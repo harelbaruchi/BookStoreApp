@@ -1,0 +1,102 @@
+<form
+  #form="ngForm"
+  (submit)="onSubmit(form)"
+  [class.submitted]="store.formSubmitted"
+  novalidate
+  autocomplete="off"
+>
+  <div class="row">
+    <div class="col-4 mb-3">
+      <label>Book Isbn</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="insert 13 digits isbn"
+        #isbn="ngModel"
+        name="isbn"
+        [(ngModel)]="store.formData.isbn"
+        required
+        minlength="13"
+        maxlength="13"
+      />
+    </div>
+    <div class="col-4 mb-3">
+      <label>Book Title</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="Title name"
+        #title="ngModel"
+        name="title"
+        [(ngModel)]="store.formData.title"
+        required
+      />
+    </div>
+    <div class="col-4 mb-3">
+      <label>Language</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="language"
+        #language="ngModel"
+        name="language"
+        [(ngModel)]="store.formData.language"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 mb-3">
+      <label>Authors</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="insert at least one author"
+        #authors="ngModel"
+        name="authors"
+        [(ngModel)]="store.authorsString"
+      />
+    </div>
+    <div class="col-4 mb-3">
+      <label>Year of Publication</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="YYYY"
+        #year="ngModel"
+        name="year"
+        [(ngModel)]="store.formData.year"
+      />
+    </div>
+    <div class="col-4 mb-3">
+      <label>Book Price</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="00.00$"
+        #price="ngModel"
+        name="price"
+        [(ngModel)]="store.formData.price"
+        required
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4 mb-3">
+      <label>Category</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="Story genre"
+        #category="ngModel"
+        name="category"
+        [(ngModel)]="store.formData.category"
+      />
+    </div>
+    <div class="col-4 mb-3">
+      <label>Cover</label>
+      <input
+        class="form-control form-control-lg"
+        placeholder="Cover type"
+        #cover="ngModel"
+        name="cover"
+        [(ngModel)]="store.formData.cover"
+      />
+    </div>
+  </div>
+  <div class="d-grid medium">
+    <button class="btn btn-lg btn-success" type="submit">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,72 @@
+<div class="bg-body-secondary text-center py-5 rounded-2">
+  <h1 class="dispay-6 fw-bold">Book Store</h1>
+</div>
+<div class="col mt-10">
+  <div class="row">
+    <div class="border px-4 py-5 rounded-2">
+      <app-book-form />
+    </div>
+  </div>
+  <div class="row">
+    <div class="flex-grow-1">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>isbn</th>
+            <th>title</th>
+            <th>language</th>
+            <th>authors</th>
+            <th>year</th>
+            <th>price</th>
+            <th>category</th>
+            <th>cover</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of store.list">
+            <th scope="row">
+              {{ book.isbn }}
+            </th>
+            <td>
+              {{ book.title }}
+            </td>
+            <td>
+              {{ book.language }}
+            </td>
+            <td>
+              <ul class="small-list" *ngFor="let author of book.authors">
+                <li>
+                  {{ author }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              {{ book.year }}
+            </td>
+            <td>
+              {{ book.price }}
+            </td>
+            <td>
+              {{ book.category }}
+            </td>
+            <td>
+              {{ book.cover }}
+            </td>
+            <td>
+              <span class="text-secondary" (click)="populateForm(book)">
+                <i class="fa-regular fa-pen-to-square mouse-hover"></i>
+              </span>
+              <span class="text-secondary">
+                <i
+                  class="fa-solid fa-trash-can fa-lg mouse-hover"
+                  (click)="onDelete(book.isbn)"
+                ></i>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
